@@ -1,3 +1,4 @@
+import sys
 import os
 import argparse
 import torch
@@ -5,6 +6,10 @@ import torch.nn as nn
 import torch.backends.cudnn as cudnn
 
 cudnn.benchmark = True
+
+# Add the project root to sys.path
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, root_path)
 
 from mdistiller.models import cifar_model_dict, imagenet_model_dict
 from mdistiller.distillers import distiller_dict
